@@ -86,7 +86,7 @@ let g:unite_source_history_yank_enable =1
 nmap <Space> [unite]
 
 "スペースキーとpキーでカレントディレクトリを表示
-nnoremap <silent> [unite]p :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]p :<C-u>Unite -buffer-name=file file<CR>
 "スペースキーとfキーでバッファと最近開いたファイル一覧を表示
 nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer file_mru<CR>
 "スペースキーとdキーで最近開いたディレクトリを表示
