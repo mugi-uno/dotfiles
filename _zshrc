@@ -7,6 +7,15 @@ setopt auto_cd
 cdpath=(.. ~ ~/src)
 # 重複を履歴に記録しない
 setopt hist_ignore_all_dups
+# typoチェック
+setopt correct
+
+
+# 履歴管理
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt extended_history
 
 # load plugin manager
 source ~/.zgen/zgen.zsh
