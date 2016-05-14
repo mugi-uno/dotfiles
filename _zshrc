@@ -1,2 +1,61 @@
 export PATH=/usr/local/bin:$PATH
 alias ll="ls -la"
+
+# 移動時のcdを省略
+setopt auto_cd
+# 一部ディレクトリはどこからでも移動可能にしとく
+cdpath=(.. ~ ~/src)
+# 重複を履歴に記録しない
+setopt hist_ignore_all_dups
+
+# load plugin manager
+source ~/.zgen/zgen.zsh
+
+if ! zgen saved; then
+
+  zgen load zsh-users/zsh-syntax-highlighting
+
+  # 自動補完
+  zgen load zsh-users/zsh-completions
+  [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
+
+  zgen load peco/peco
+  zgen load b4b4r07/enhancd
+
+  # cd to git root directory
+  zgen load mollifier/cd-gitroot
+
+  # load oh-my-zsh
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh themes/wezm
+
+  # generate the init script from plugins above
+  zgen save
+fi
+
+
+# history search by peco
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+# move ghqroot
+function peco-move-ghq-root() {
+  cd $(ghq list -p | peco)
+}
+
+# move ghq root
+alias ghqroot="peco-move-ghq-root"
