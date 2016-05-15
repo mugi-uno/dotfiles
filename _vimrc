@@ -1,5 +1,6 @@
 set encoding=utf-8
 
+syntax on
 set number
 
 colorscheme desert
@@ -70,6 +71,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
+" マルチカーソル
+NeoBundle 'terryma/vim-multiple-cursors'
 
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
@@ -81,6 +84,15 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-endwise'
 " Ruby on Rails
 NeoBundle 'tpope/vim-rails'
+
+
+"" ES6 highlight
+NeoBundle 'othree/yajs.vim'
+"" stage-0 syntax highlight
+NeoBundle 'othree/es.next.syntax.vim'
+"" jsx highlight
+NeoBundle 'mxw/vim-jsx'
+
 
 " CTRL+P
 NeoBundle 'ctrlpvim/ctrlp.vim'
