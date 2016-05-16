@@ -1,6 +1,10 @@
 export PATH=/usr/local/bin:$PATH
 alias ll="ls -la"
 
+# for rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # 移動時のcdを省略
 setopt auto_cd
 # 一部ディレクトリはどこからでも移動可能にしとく
@@ -68,3 +72,10 @@ function peco-move-ghq-root() {
 
 # move ghq root
 alias ghqroot="peco-move-ghq-root"
+
+
+# launch tmux
+if [ -z $TMUX ]; then
+  tmux
+fi
+
