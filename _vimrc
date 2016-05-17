@@ -1,6 +1,10 @@
 set encoding=utf-8
 
+" ハイライト有効化
+syntax enable
 syntax on
+
+" 行表示
 set number
 
 colorscheme desert
@@ -48,6 +52,11 @@ set shiftwidth=2
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 
+" configure to move cursor on insert mode
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -96,9 +105,14 @@ NeoBundle 'mxw/vim-jsx'
 
 " CTRL+P
 NeoBundle 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_cmd = 'CtrlPMixed'
+" ファイルをtree表示してくれる
+NeoBundle 'scrooloose/nerdtree'
 
-call neobundle#end()
+" Linter
+NeoBundle 'Shougo/vimproc.vim', {'do' : 'make'}
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-watchdogs'
 
 " Required:
 filetype plugin indent on
@@ -106,5 +120,44 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+
+let g:ctrlp_cmd = 'CtrlPMixed'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png
+let g:ctrp_custom_ignore='\v[\/](node_modules|build)$'
+
+let g:quickrun_config = get(g:, 'quickrun_config', {})
+let g:quickrun_config['watchdogs_checker/_'] = {
+        \   'runner' : 'vimproc',
+        \   'runner/vimproc/sleep' : 10,
+        \   'runner/vimproc/updatetime' : 500,
+        \   'outputter/buffer/split' : ':botright 4sp',
+        \   'outputter/quickfix/open_cmd' : "",
+        \   'hook/echo/enable' : 0,
+        \   'hook/echo/output_success': '> No Errors Found.',
+        \   'hook/back_window/enable' : 1,
+        \   'hook/back_window/enable_exit' : 1,
+        \   'hock/close_buffer/enable_hock_loaded' : 1,
+        \   'hock/close_buffer/enable_success' : 1,
+        \   'hook/qfstatusline_update/enable_exit' : 1,
+        \   'hook/qfstatusline_update/priority_exit' : 4,
+        \ }
+
+" ファイルタイプと実行するコマンドのひも付け（javascriptでeslint実行するよー）
+if executable('eslint')
+  let g:quickrun_config['javascript/watchdogs_checker'] = {
+        \   'type' : 'watchdogs_checker/eslint',
+        \ }
+  let g:quickrun_config['javascript.jsx/watchdogs_checker'] = {
+        \   'type' : 'eslint',
+        \ }
+endif
+" 次のファイルタイプのバッファが保存されたらwatch-dogsがquick-run走らせてくれる
+let g:watchdogs_check_BufWritePost_enables = {
+      \ 'javascript'     : 1,
+      \ 'javascript.jsx' : 1,
+      \ }
+
+call neobundle#end()
 
 
