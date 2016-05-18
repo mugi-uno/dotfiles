@@ -83,6 +83,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " マルチカーソル
 NeoBundle 'terryma/vim-multiple-cursors'
 
+" indent highlight
+NeoBundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
+let g:indent_guides_color_change_percent = 30
+let g:indent_guides_guide_size = 1
+
+
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
 
@@ -105,8 +116,17 @@ NeoBundle 'mxw/vim-jsx'
 
 " CTRL+P
 NeoBundle 'ctrlpvim/ctrlp.vim'
+
 " ファイルをtree表示してくれる
 NeoBundle 'scrooloose/nerdtree'
+" key binding for NERDTree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" Easy Motion(なんかすごい感じでカーソル移動するやつ)
+NeoBundle 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0  "Disable default mappings
+let g:EasyMotion_smartcase = 1   "大文字小文字マッチ
+nmap s <Plug>(easymotion-bd-w)
 
 " Linter
 NeoBundle 'Shougo/vimproc.vim', {'do' : 'make'}
