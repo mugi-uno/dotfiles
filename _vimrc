@@ -22,31 +22,22 @@ set viminfo+=n~/.vim/_viminfo
 
 " BSキーによる削除対象を拡張
 set backspace=indent,eol,start
-
 " 現在のカーソル位置を画面右下に常時表示
 set ruler
-
 " ウィンドウのタイトルバーにファイルのパス情報を表示
 set title
-
 " 入力途中のコマンドを表示
 set showcmd
-
 " 画面端での行折り曲げを禁止
 set nowrap
-
 " 画面端でのカーソル移動を許可
 set whichwrap=b,s,<,>,[,]
-
 " 未保存でも他ファイルを開けるように
 set hidden
-
 " インクリメンタルサーチ
 set incsearch
-
 " 未保存でも他ファイルを開けるように
 set hidden
-
 " タブ幅とインデントの設定
 set autoindent
 set expandtab
@@ -63,7 +54,6 @@ set shellslash
 " ESCがつらい
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
-
 " タブ変更がつらい
 noremap <Tab> gt
 noremap <C-Tab> gT
@@ -133,6 +123,11 @@ NeoBundle 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0  "Disable default mappings
 let g:EasyMotion_smartcase = 1   "大文字小文字マッチ
 nmap s <Plug>(easymotion-bd-w)
+
+" ステータスバーをいい感じにする
+NeoBundle 'itchyny/lightline.vim'
+set nocursorline                                      " カーソル行の強調解除
+autocmd InsertEnter,InsertLeave * set cursorline!     " 挿入モード時にカーソル強調
 
 " Linter
 NeoBundle 'Shougo/vimproc.vim', {'do' : 'make'}
