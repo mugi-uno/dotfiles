@@ -87,14 +87,21 @@ NeoBundle 'terryma/vim-multiple-cursors'
 
 " indent highlight
 NeoBundle 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
-let g:indent_guides_color_change_percent = 30
-let g:indent_guides_guide_size = 1
 
+"vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup=1
+" ガイドをスタートするインデントの量
+let g:indent_guides_start_level=2
+" 自動カラーを無効にする
+let g:indent_guides_auto_colors=0
+" 奇数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=gray
+" 偶数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray
+" ハイライト色の変化の幅
+let g:indent_guides_color_change_percent = 30
+" ガイドの幅
+let g:indent_guides_guide_size = 1
 
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
@@ -130,12 +137,6 @@ NeoBundle 'itchyny/lightline.vim'
 set nocursorline                                      " カーソル行の強調解除
 autocmd InsertEnter,InsertLeave * set cursorline!     " 挿入モード時にカーソル強調
 
-" Linter
-NeoBundle 'Shougo/vimproc.vim', {'do' : 'make'}
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/vim-watchdogs'
-
 " Required:
 filetype plugin indent on
 
@@ -164,21 +165,5 @@ let g:quickrun_config['watchdogs_checker/_'] = {
         \   'hook/qfstatusline_update/priority_exit' : 4,
         \ }
 
-" ファイルタイプと実行するコマンドのひも付け（javascriptでeslint実行するよー）
-if executable('eslint')
-  let g:quickrun_config['javascript/watchdogs_checker'] = {
-        \   'type' : 'watchdogs_checker/eslint',
-        \ }
-  let g:quickrun_config['javascript.jsx/watchdogs_checker'] = {
-        \   'type' : 'eslint',
-        \ }
-endif
-" 次のファイルタイプのバッファが保存されたらwatch-dogsがquick-run走らせてくれる
-let g:watchdogs_check_BufWritePost_enables = {
-      \ 'javascript'     : 1,
-      \ 'javascript.jsx' : 1,
-      \ }
-
 call neobundle#end()
-
 

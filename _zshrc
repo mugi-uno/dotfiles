@@ -73,6 +73,8 @@ function peco-move-ghq-root() {
 # move ghq root
 alias ghqroot="peco-move-ghq-root"
 
+# for tmux alias
+alias tmux="TERM=screen-256color-bce tmux"
 
 # launch tmux
 if [ -z $TMUX ]; then
