@@ -1,5 +1,10 @@
 set encoding=utf-8
 
+" USキーボード用vimrcが存在する場合は読み込む
+if filereadable(glob("~/.vimrc.us"))
+  source ~/.vimrc.us
+endif
+
 " ハイライト有効化
 syntax enable
 syntax on
@@ -52,11 +57,17 @@ set shiftwidth=2
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 
-" configure to move cursor on insert mode
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+" use / on Windows
+set shellslash
+
+" ESCがつらい
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
+
+" タブ変更がつらい
+noremap <Tab> gt
+noremap <C-Tab> gT
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -105,17 +116,12 @@ NeoBundle 'tpope/vim-endwise'
 " Ruby on Rails
 NeoBundle 'tpope/vim-rails'
 
-
 "" ES6 highlight
 NeoBundle 'othree/yajs.vim'
 "" stage-0 syntax highlight
 NeoBundle 'othree/es.next.syntax.vim'
 "" jsx highlight
 NeoBundle 'mxw/vim-jsx'
-
-
-" CTRL+P
-NeoBundle 'ctrlpvim/ctrlp.vim'
 
 " ファイルをtree表示してくれる
 NeoBundle 'scrooloose/nerdtree'
@@ -141,11 +147,10 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-
-let g:ctrlp_cmd = 'CtrlPMixed'
+" CTRL+P
+NeoBundle 'ctrlpvim/ctrlp.vim'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png
-let g:ctrp_custom_ignore='\v[\/](node_modules|build)$'
-
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|build)$'
 let g:quickrun_config = get(g:, 'quickrun_config', {})
 let g:quickrun_config['watchdogs_checker/_'] = {
         \   'runner' : 'vimproc',
