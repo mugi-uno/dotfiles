@@ -31,7 +31,7 @@ set showcmd
 " 画面端での行折り曲げを禁止
 set nowrap
 " 画面端でのカーソル移動を許可
-set whichwrap=b,s,<,>,[,]
+set whichwrap=b,s,h,l,<,>,[,]
 " 未保存でも他ファイルを開けるように
 set hidden
 " インクリメンタルサーチ
@@ -54,6 +54,7 @@ set shellslash
 " ESCがつらい
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
+
 " タブ変更がつらい
 noremap <Tab> gt
 noremap <C-Tab> gT
