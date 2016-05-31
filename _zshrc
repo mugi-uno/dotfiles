@@ -21,6 +21,9 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt extended_history
 
+# disabled 'cd ..' by enhancd
+ENHANCD_DISABLE_DOT=1
+
 # load plugin manager
 source ~/.zgen/zgen.zsh
 
@@ -71,7 +74,7 @@ function peco-move-ghq-root() {
 }
 
 # move ghq root
-alias ghqroot="peco-move-ghq-root"
+alias gr="peco-move-ghq-root"
 
 # for tmux alias
 alias tmux="TERM=screen-256color-bce tmux"
