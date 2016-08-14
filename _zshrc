@@ -44,7 +44,7 @@ if ! zgen saved; then
   # load oh-my-zsh
   zgen oh-my-zsh
   zgen oh-my-zsh plugins/git
-  zgen oh-my-zsh themes/wezm
+  zgen oh-my-zsh themes/robbyrussell
 
   # generate the init script from plugins above
   zgen save
@@ -80,7 +80,6 @@ alias gr="peco-move-ghq-root"
 alias tmux="TERM=screen-256color-bce tmux"
 
 # launch tmux
-if [ -z $TMUX ]; then
-  tmux
-fi
-
+# if [ -z $TMUX ]; then
+#   tmux
+# fi
