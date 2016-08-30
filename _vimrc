@@ -129,6 +129,7 @@ nmap s <Plug>(easymotion-bd-w)
 
 " ステータスバーをいい感じにする
 NeoBundle 'itchyny/lightline.vim'
+set laststatus=2
 set nocursorline                                      " カーソル行の強調解除
 autocmd InsertEnter,InsertLeave * set cursorline!     " 挿入モード時にカーソル強調
 
