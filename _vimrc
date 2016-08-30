@@ -87,11 +87,11 @@ NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'terryma/vim-multiple-cursors'
 
 " indent guide
-NeoBundle 'Yggdroot/indentLine'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+" NeoBundle 'Yggdroot/indentLine'
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
 
 
 " コメントON/OFFを手軽に実行
@@ -133,7 +133,7 @@ set nocursorline                                      " カーソル行の強調
 autocmd InsertEnter,InsertLeave * set cursorline!     " 挿入モード時にカーソル強調
 
 " Required:
-filetype plugin indent on
+" filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.

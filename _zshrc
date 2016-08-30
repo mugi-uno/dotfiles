@@ -72,9 +72,8 @@ bindkey '^r' peco-select-history
 function peco-move-ghq-root() {
   cd $(ghq list -p | peco)
 }
-
-# move ghq root
-alias gr="peco-move-ghq-root"
+zle -N peco-move-ghq-root
+bindkey '^g' peco-move-ghq-root
 
 # for tmux alias
 alias tmux="TERM=screen-256color-bce tmux"
