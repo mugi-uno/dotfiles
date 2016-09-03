@@ -1,4 +1,5 @@
 set encoding=utf-8
+set guifont=Ricty:h14
 
 " USキーボード用vimrcが存在する場合は読み込む
 if filereadable(glob("~/.vimrc.us"))
@@ -132,6 +133,11 @@ NeoBundle 'itchyny/lightline.vim'
 set laststatus=2
 set nocursorline                                      " カーソル行の強調解除
 autocmd InsertEnter,InsertLeave * set cursorline!     " 挿入モード時にカーソル強調
+
+" Syntax check
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_ruby_checkers = ['rubocop']
+
 
 " Required:
 " filetype plugin indent on
