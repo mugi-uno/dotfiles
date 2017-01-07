@@ -82,3 +82,12 @@ alias tmux="TERM=screen-256color-bce tmux"
 # if [ -z $TMUX ]; then
 #   tmux
 # fi
+
+
+alias hosts="cat /etc/hosts"
+
+# for Rails Alias
+alias be="bundle exec"
+
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
