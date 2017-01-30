@@ -88,3 +88,6 @@ alias be="bundle exec"
 # Disable open dual window by Sublime text
 alias subl='subl -a'
 
+# For anyenv (https://github.com/riywo/anyenv)
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
