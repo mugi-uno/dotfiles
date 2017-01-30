@@ -117,10 +117,10 @@ NeoBundle 'othree/es.next.syntax.vim'
 "" jsx highlight
 NeoBundle 'mxw/vim-jsx'
 
-" ファイルをtree表示してくれる
-NeoBundle 'scrooloose/nerdtree'
-" key binding for NERDTree
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"" ファイルをtree表示してくれる
+"NeoBundle 'scrooloose/nerdtree'
+"" key binding for NERDTree
+"nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " Easy Motion(なんかすごい感じでカーソル移動するやつ)
 NeoBundle 'easymotion/vim-easymotion'
