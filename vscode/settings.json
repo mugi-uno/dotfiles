@@ -1,0 +1,17 @@
+{
+    "editor.fontFamily": "Ricty for Powerline",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 20,
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": true,
+    "editor.renderIndentGuides": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "tmp/*": true
+    },
+    "terminal.integrated.fontSize": 14,
+    "window.zoomLevel": 0
+}

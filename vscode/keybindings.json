@@ -1,0 +1,21 @@
+[{
+  "key": "ctrl+shift+a",
+  "command": "cursorHomeSelect",
+  "when": "editorTextFocus"
+}, {
+  "key": "ctrl+shift+e",
+  "command": "cursorEndSelect",
+  "when": "editorTextFocus"
+}, {
+  "key": "ctrl+shift+left",
+  "command": "cursorWordStartLeftSelect",
+  "when": "editorTextFocus"
+}, {
+  "key": "ctrl+shift+right",
+  "command": "cursorWordEndRightSelect",
+  "when": "editorTextFocus"
+}, {
+  "key": "ctrl+shift+t",
+  "command": "workbench.action.tasks.test",
+  "when": "editorTextFocus"
+}]
