@@ -66,7 +66,12 @@ bindkey '^r' peco-select-history
 
 # move ghqroot
 function peco-move-ghq-root() {
-  cd $(ghq list -p | peco)
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+    zle clear-screen
+  fi
 }
 zle -N peco-move-ghq-root
 bindkey '^g' peco-move-ghq-root
