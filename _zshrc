@@ -87,6 +87,9 @@ alias tmux="TERM=screen-256color-bce tmux"
 
 alias hosts="cat /etc/hosts"
 
+# alias for git
+alias gbmd="git branch --merged | grep -vE '^\*|master$|develop$' | xargs -I % git branch -d %"
+
 # for Rails Alias
 alias be="bundle exec"
 
