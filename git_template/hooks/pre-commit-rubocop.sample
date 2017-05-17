@@ -1,4 +1,4 @@
 #!/bin/sh
 
-git diff --cached --name-only --diff-filter=AM | grep '\.rb$' | xargs bundle exec rubocop -f s
+git diff --cached --name-only --diff-filter=AM | grep '\.(rb|thor)$' | xargs bundle exec rubocop -f s
 exit $?
