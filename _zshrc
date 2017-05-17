@@ -76,6 +76,15 @@ function peco-move-ghq-root() {
 zle -N peco-move-ghq-root
 bindkey '^g' peco-move-ghq-root
 
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^p' pet-select
+
 # for tmux alias
 alias tmux="TERM=screen-256color-bce tmux"
 
