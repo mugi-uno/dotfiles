@@ -1,0 +1,12 @@
+total 64
+-rw-r--r--  1 mugi  staff   1.5K  3  1 14:19 Brewfile
+-rw-r--r--  1 mugi  staff   324B  3  6 09:58 README.md
+-rw-r--r--  1 mugi  staff   189B  3  1 14:19 _gvimrc
+-rw-r--r--  1 mugi  staff   1.2K  3  1 14:19 _tmux.conf
+-rw-r--r--  1 mugi  staff   4.5K  3  1 14:19 _vimrc
+-rw-r--r--  1 mugi  staff    85B  3  1 14:19 _vimrc.us
+-rw-r--r--  1 mugi  staff   2.2K  5 17 15:28 _zshrc
+drwxr-xr-x  3 mugi  staff   102B  3  6 09:58 git_template
+-rw-r--r--  1 mugi  staff     0B  8 22 09:32 hoge.txt
+drwxr-xr-x  3 mugi  staff   102B  5 29 10:07 scripts
+drwxr-xr-x  5 mugi  staff   170B  3  1 14:19 vscode
