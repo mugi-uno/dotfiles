@@ -98,6 +98,7 @@ alias hosts="cat /etc/hosts"
 
 # alias for git
 alias gbmd="git branch --merged | grep -vE '^\*|master$|develop$' | xargs -I % git branch -d %"
+alias gpeco="git branch | peco | xargs git checkout"
 
 # for Rails Alias
 alias be="bundle exec"
@@ -108,3 +109,4 @@ alias subl='subl -a'
 # For anyenv (https://github.com/riywo/anyenv)
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+
