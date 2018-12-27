@@ -110,3 +110,9 @@ alias subl='subl -a'
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+export PATH="$HOME/.bin:$PATH"
+
+if [ -f ~/.zshrc.additional ]; then
+  source ~/.zshrc.additional
+fi
+
