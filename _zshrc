@@ -1,5 +1,7 @@
 export PATH=/usr/local/bin:$PATH
 alias ll="ls -la"
+alias d="docker"
+alias dc="docker-compose"
 
 # 移動時のcdを省略
 setopt auto_cd
