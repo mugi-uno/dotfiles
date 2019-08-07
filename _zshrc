@@ -90,7 +90,7 @@ bindkey '^g' peco-move-ghq-root
 
 # checkout by peco
 function checkout-by-peco() {
-  git branch --sort=-authordate | peco | xargs git checkout
+  git branch --sort=-authordate | grep -v '*' | peco | xargs git checkout
 }
 zle -N checkout-by-peco
 bindkey '^b' checkout-by-peco
