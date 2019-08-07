@@ -2,6 +2,16 @@ export PATH=/usr/local/bin:$PATH
 alias ll="ls -la"
 alias d="docker"
 alias dc="docker-compose"
+alias grbom='git rebase origin/master'
+alias ryarn='rm -rf ./public/packs && yarn install && yarn watch'
+alias c="crane"
+alias ce="crane exec"
+alias cr="crane run"
+alias cs="crane status"
+alias crspec="crane exec app bin/rspec"
+alias crubocop="crane exec app rubocop"
+
+alias lastdiff="git -P diff HEAD^ HEAD --name-only"
 
 # 移動時のcdを省略
 setopt auto_cd
@@ -77,6 +87,13 @@ function peco-move-ghq-root() {
 }
 zle -N peco-move-ghq-root
 bindkey '^g' peco-move-ghq-root
+
+# checkout by peco
+function checkout-by-peco() {
+  git branch --sort=-authordate | peco | xargs git checkout
+}
+zle -N checkout-by-peco
+bindkey '^b' checkout-by-peco
 
 function pet-select() {
   BUFFER=$(pet search --query "$LBUFFER")
