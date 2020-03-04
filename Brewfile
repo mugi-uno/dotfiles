@@ -1,6 +1,6 @@
-tap "heroku/brew"
 tap 'homebrew/bundle'
 tap 'homebrew/core'
+tap "heroku/brew"
 
 brew 'ctags'
 brew 'git'
@@ -47,3 +47,4 @@ mas 'Super Easy Timer', id: 1353137878
 mas 'CompareMerge', id: 478570084
 mas 'Numbers', id: 409203825
 mas 'Keynote', id: 409183694
+
