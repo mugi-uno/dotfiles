@@ -1,65 +1,20 @@
-tap 'caskroom/cask'
+tap "heroku/brew"
 tap 'homebrew/bundle'
 tap 'homebrew/core'
-tap 'homebrew/dupes'
-tap 'motemen/ghq'
-tap 'peco/peco'
-tap 'rcmdnk/file'
-tap 'sanemat/font'
 
-brew 'autoconf'
-brew 'awscli'
-brew 'libpng'
-brew 'freetype'
-brew 'fontconfig'
-brew 'gettext'
-brew 'libffi'
-brew 'pcre'
-brew 'glib'
-brew 'pixman'
-brew 'cairo'
-brew 'cscope'
 brew 'ctags'
-brew 'zeromq'
-brew 'czmq'
 brew 'git'
-brew 'jpeg'
-brew 'libtiff'
-brew 'libtool'
-brew 'pkg-config'
-brew 'gobject-introspection'
-brew 'icu4c'
-brew 'harfbuzz'
-brew 'pango'
-brew 'fontforge'
-brew 'gdbm'
+brew "go"
 brew 'ghq'
 brew 'gibo'
-brew 'go'
-brew 'graphviz'
-brew 'oniguruma'
+brew "heroku/brew/heroku"
 brew 'jq'
 brew 'openssl'
-brew 'libevent'
-brew 'libsodium'
-brew 'readline'
 brew 'sqlite'
-brew 'python'
-brew 'libxml2'
-brew 'libxslt'
-brew 'libyaml'
-brew 'macvim', args: ['with-override-system-vim']
-brew 'makedepend'
 brew 'mas'
-brew 'mysql'
-brew 'node-build'
-brew 'nodenv'
-brew 'ossp-uuid'
+brew "nkf"
 brew 'peco'
-brew 'perl'
 brew 'postgresql'
-brew 'ruby'
-brew 'ruby-build'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
@@ -67,13 +22,10 @@ brew 'vim'
 brew 'wget'
 brew 'zsh'
 brew 'zsh-completions'
-brew 'homebrew/dupes/libiconv'
-brew 'rcmdnk/file/brew-file'
 brew 'sanemat/font/ricty', args: ['vim-powerline']
 
 cask 'alfred'
 cask 'bettertouchtool'
-cask 'cmd-eikana'
 cask 'dash'
 cask 'docker'
 cask 'dropbox'
@@ -83,8 +35,15 @@ cask 'iterm2'
 cask 'spark'
 cask 'visual-studio-code'
 
-mas 'The Unarchiver', id: 425424353
-mas 'Kobito', id: 896624060
 mas 'Xcode', id: 497799835
+mas 'GarageBand', id: 408980954
+mas 'The Unarchiver', id: 425424353
+mas 'Keynote', id: 409183694
+mas 'ASUS Device Discovery', id: 995124504
+mas 'TweetDeck', id: 485812721
 mas 'Display Menu', id: 549083868
+mas 'Pages', id: 409201541
+mas 'Super Easy Timer', id: 1353137878
+mas 'CompareMerge', id: 478570084
+mas 'Numbers', id: 409203825
 mas 'Keynote', id: 409183694
