@@ -32,7 +32,7 @@ if ! zgen saved; then
   [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
 
   zgen load peco/peco
-  zgen load b4b4r07/enhancd
+  #zgen load b4b4r07/enhancd
 
   # cd to git root directory
   zgen load mollifier/cd-gitroot
