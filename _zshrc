@@ -1,17 +1,4 @@
 export PATH=/usr/local/bin:$PATH
-alias ll="ls -la"
-alias d="docker"
-alias dc="docker-compose"
-alias grbom='git rebase origin/master'
-alias ryarn='rm -rf ./public/packs && yarn install && yarn watch'
-alias c="crane"
-alias ce="crane exec"
-alias cr="crane run"
-alias cs="crane status"
-alias crspec="crane exec app bin/rspec"
-alias crubocop="crane exec app rubocop"
-
-alias lastdiff="git -P diff HEAD^ HEAD --name-only"
 
 # 移動時のcdを省略
 setopt auto_cd
@@ -118,6 +105,9 @@ alias hosts="cat /etc/hosts"
 # alias for git
 alias gbmd="git branch --merged | grep -vE '^\*|master$|develop$' | xargs -I % git branch -d %"
 alias gpeco="git branch | peco | xargs git checkout"
+alias prc="hub pr list | peco | awk '{print substr(\$1, 2)}' | xargs -I{} hub pr checkout {}"
+alias fixup="git log --oneline -n -30 | peco | awk '{print $1}' | xargs -I{} git commit --fixup {}"
+alias autosquash="git log --oneline -n -30 | peco | awk '{print $1}' | xargs -I{} git rebase -i --autosquash {}"
 
 # for Rails Alias
 alias be="bundle exec"
@@ -134,4 +124,18 @@ export PATH="$HOME/.bin:$PATH"
 if [ -f ~/.zshrc.additional ]; then
   source ~/.zshrc.additional
 fi
+
+alias ls="exa"
+alias ll="exa -la --icons"
+alias d="docker"
+alias dc="docker-compose"
+alias grbom='git rebase origin/master'
+alias ryarn='rm -rf ./public/packs && yarn install && yarn watch'
+alias c="crane"
+alias ce="crane exec"
+alias cr="crane run"
+alias cs="crane status"
+alias crspec="crane exec app bin/rspec"
+alias crubocop="crane exec app rubocop"
+alias lastdiff="git -P diff HEAD^ HEAD --name-only"
 
