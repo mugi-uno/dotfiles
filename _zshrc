@@ -82,14 +82,18 @@ function checkout-by-peco() {
 zle -N checkout-by-peco
 bindkey '^b' checkout-by-peco
 
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
+# checkout GitHub PR
+# reference: https://fromatom.hatenablog.com/entry/2020/03/31/135410
+function peco-checkout-pull-request () {
+    local selected_pr_id=$(gh pr list | peco | awk '{ print $1 }')
+    if [ -n "$selected_pr_id" ]; then
+        BUFFER="gh pr checkout ${selected_pr_id}"
+        zle accept-line
+    fi
+    zle clear-screen
 }
-zle -N pet-select
-stty -ixon
-bindkey '^p' pet-select
+zle -N peco-checkout-pull-request
+bindkey '^p^r' peco-checkout-pull-request
 
 # for tmux alias
 alias tmux="TERM=screen-256color-bce tmux"
@@ -106,8 +110,8 @@ alias hosts="cat /etc/hosts"
 alias gbmd="git branch --merged | grep -vE '^\*|master$|develop$' | xargs -I % git branch -d %"
 alias gpeco="git branch | peco | xargs git checkout"
 alias prc="hub pr list | peco | awk '{print substr(\$1, 2)}' | xargs -I{} hub pr checkout {}"
-alias fixup="git log --oneline -n -30 | peco | awk '{print $1}' | xargs -I{} git commit --fixup {}"
-alias autosquash="git log --oneline -n -30 | peco | awk '{print $1}' | xargs -I{} git rebase -i --autosquash {}"
+alias fixup="git log --oneline -n -30 | peco | awk '{print \$1}' | xargs -I{} git commit --fixup {}"
+alias autosquash="git log --oneline -n -30 | peco | awk '{print \$1}' | xargs -I{} git rebase -i --autosquash {}"
 
 # for Rails Alias
 alias be="bundle exec"
@@ -125,8 +129,6 @@ if [ -f ~/.zshrc.additional ]; then
   source ~/.zshrc.additional
 fi
 
-alias ls="exa"
-alias ll="exa -la --icons"
 alias d="docker"
 alias dc="docker-compose"
 alias grbom='git rebase origin/master'
