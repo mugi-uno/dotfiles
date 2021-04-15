@@ -31,7 +31,15 @@ alias gcp 'git cherry-pick'
 alias gd 'git diff'
 alias gf 'git fetch'
 alias gfa 'git fetch --all --prune'
-alias ggpush 'git push origin $(git_current_branch)'
+alias ggu 'git pull --rebase origin (current_branch)'
+alias ggpush 'git push origin (current_branch)'
 alias gp 'git push'
 alias gpsup 'git push -u'
 alias grbom 'git rebase origin/master'
+
+function current_branch -d "Output git's current branch name"
+  begin
+    git symbolic-ref HEAD; or \
+    git rev-parse --short HEAD; or return
+  end 2>/dev/null | sed -e 's|^refs/heads/||'
+end
