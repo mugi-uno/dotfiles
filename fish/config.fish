@@ -18,3 +18,20 @@ set GHQ_SELECTOR peco
 function fish_right_prompt
   #intentionally left blank
 end
+
+
+alias g 'git'
+alias ga 'git add'
+alias gaa 'git add --all'
+alias gb 'git branch'
+alias gc 'git commit -v'
+alias gcm 'git checkout master'
+alias gco 'git checkout'
+alias gcp 'git cherry-pick'
+alias gd 'git diff'
+alias gf 'git fetch'
+alias gfa 'git fetch --all --prune'
+alias ggpush 'git push origin $(git_current_branch)'
+alias gp 'git push'
+alias gpsup 'git push -u'
+alias grbom 'git rebase origin/master'
