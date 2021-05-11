@@ -9,6 +9,9 @@ set -g theme_newline_cursor no
 set -g theme_display_date no
 set -g theme_show_exit_status no
 
+set -x PATH $HOME/.anyenv/bin $PATH
+eval (anyenv init - | source)
+
 function fish_user_key_bindings
   bind \cr peco_select_history # Bind for prco history to Ctrl+r
 end
