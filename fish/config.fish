@@ -37,7 +37,7 @@ alias gfa 'git fetch --all --prune'
 alias ggu 'git pull --rebase origin (current_branch)'
 alias ggpush 'git push origin (current_branch)'
 alias gp 'git push'
-alias gpsup 'git push -u'
+alias gpsup 'git push -u origin (current_branch)'
 alias grbom 'git rebase origin/master'
 
 function current_branch -d "Output git's current branch name"
