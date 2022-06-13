@@ -1,5 +1,12 @@
-# curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+# Preinstall: fisher
+#   see: https://github.com/jorgebucaran/fisher
+#
+# brew install fzf
+# brew install zoxide
+# brew install gitui
+#
 # fisher install decors/fish-ghq
+# fisher install jethrokuan/fzf
 # curl -L https://get.oh-my.fish | fish
 # omf install bobthefish
 # omf install peco
@@ -9,19 +16,23 @@ set -g theme_newline_cursor no
 set -g theme_display_date no
 set -g theme_show_exit_status no
 
+set -g theme_display_git_dirty no
+set -g theme_display_git_untracked no
+set -g theme_display_git_ahead_verbose no
+set -g theme_display_git_dirty_verbose no
+set -g theme_display_git_stashed_verbose no
+
 set -x PATH $HOME/.anyenv/bin $PATH
 eval (anyenv init - | source)
 
-function fish_user_key_bindings
-  bind \cr peco_select_history # Bind for prco history to Ctrl+r
-end
 
-set GHQ_SELECTOR peco
+set GHQ_SELECTOR fzf
 
 function fish_right_prompt
   #intentionally left blank
 end
 
+bind \cf zi
 
 alias g 'git'
 alias ga 'git add'
@@ -39,6 +50,8 @@ alias ggpush 'git push origin (current_branch)'
 alias gp 'git push'
 alias gpsup 'git push -u'
 alias grbom 'git rebase origin/master'
+alias kb 'kubectl'
+alias gui 'gitui'
 
 function current_branch -d "Output git's current branch name"
   begin
@@ -46,3 +59,6 @@ function current_branch -d "Output git's current branch name"
     git rev-parse --short HEAD; or return
   end 2>/dev/null | sed -e 's|^refs/heads/||'
 end
+
+zoxide init fish | source
+
