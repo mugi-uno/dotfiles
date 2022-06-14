@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 export PATH=/usr/local/bin:$PATH
 
 # 移動時のcdを省略
@@ -141,3 +143,5 @@ alias crspec="crane exec app bin/rspec"
 alias crubocop="crane exec app rubocop"
 alias lastdiff="git -P diff HEAD^ HEAD --name-only"
 
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
