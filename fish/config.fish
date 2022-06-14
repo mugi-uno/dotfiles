@@ -8,13 +8,12 @@ set -g theme_color_scheme terminal-dark
 set -g theme_newline_cursor no
 set -g theme_display_date no
 set -g theme_show_exit_status no
+#set -g theme_display_git_dirty no
+set -g theme_display_git_untracked no
 
 set -x PATH $HOME/.anyenv/bin $PATH
-eval (anyenv init - | source)
 
-function fish_user_key_bindings
-  bind \cr peco_select_history # Bind for prco history to Ctrl+r
-end
+status --is-interactive; and source (anyenv init -|psub)
 
 set GHQ_SELECTOR peco
 
@@ -28,7 +27,7 @@ alias ga 'git add'
 alias gaa 'git add --all'
 alias gb 'git branch'
 alias gc 'git commit -v'
-alias gcm 'git checkout master'
+alias gcm 'git checkout main'
 alias gco 'git checkout'
 alias gcp 'git cherry-pick'
 alias gd 'git diff'
@@ -39,6 +38,8 @@ alias ggpush 'git push origin (current_branch)'
 alias gp 'git push'
 alias gpsup 'git push -u origin (current_branch)'
 alias grbom 'git rebase origin/master'
+alias d 'docker'
+alias dc 'docker-compose'
 
 function current_branch -d "Output git's current branch name"
   begin
