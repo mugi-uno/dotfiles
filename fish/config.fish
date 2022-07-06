@@ -11,18 +11,16 @@
 # omf install bobthefish
 # omf install peco
 
-set -g theme_color_scheme terminal-dark
-set -g theme_newline_cursor no
-set -g theme_display_date no
-set -g theme_show_exit_status no
-#set -g theme_display_git_dirty no
-set -g theme_display_git_untracked no
-
-set -g theme_display_git_dirty no
-set -g theme_display_git_untracked no
-set -g theme_display_git_ahead_verbose no
-set -g theme_display_git_dirty_verbose no
-set -g theme_display_git_stashed_verbose no
+# set -g theme_color_scheme terminal-dark
+# set -g theme_newline_cursor no
+# set -g theme_display_date no
+# set -g theme_show_exit_status no
+# 
+# set -g theme_display_git_dirty no
+# set -g theme_display_git_untracked no
+# set -g theme_display_git_ahead_verbose no
+# set -g theme_display_git_dirty_verbose no
+# set -g theme_display_git_stashed_verbose no
 
 set -x PATH $HOME/.anyenv/bin $PATH
 
@@ -30,9 +28,9 @@ status --is-interactive; and source (anyenv init -|psub)
 
 set GHQ_SELECTOR fzf
 
-function fish_right_prompt
+#function fish_right_prompt
   #intentionally left blank
-end
+#end
 
 bind \cf zi
 
@@ -65,4 +63,6 @@ function current_branch -d "Output git's current branch name"
 end
 
 zoxide init fish | source
+
+starship init fish | source
 
