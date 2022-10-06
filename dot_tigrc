@@ -1,0 +1,4 @@
+bind main C !@bash -c "echo -n %(commit) | pbcopy"
+
+set commit-order = default
+
