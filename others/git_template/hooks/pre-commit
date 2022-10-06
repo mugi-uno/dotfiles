@@ -1,0 +1,44 @@
+#!/bin/bash
+#original:http://site-blog.main.jp/2015/04/20/git-prepush/
+
+branch="$(git symbolic-ref HEAD 2>/dev/null)" || 
+       "$(git describe --contains --all HEAD)"
+
+if [ "${branch##refs/heads/}" = "master" ]; then
+  echo -e "\033[0;31m\xE2\x9D\x8C  Do not commit on the master branch !\033[0;39m"
+  exit 1
+fi
+
+rubocop_script="`dirname $0`/pre-commit-rubocop"
+haml_lint_script="`dirname $0`/pre-commit-haml-lint"
+
+errors=()
+
+if [ -e $rubocop_script ]; then
+  echo -e "\033[0;33m \xF0\x9F\x94\x8D  run rubocop...\033[0;39m"
+  sh $rubocop_script
+
+  if [ $? -ne 0 ]; then
+    errors+=(1)
+    echo -e "\033[0;31m \xE2\x9D\x8C   ng rubocop\033[0;39m"
+  else
+    echo -e "\033[0;33m \xE2\x9C\x94   ok rubocop\033[0;39m"
+  fi
+fi
+
+if [ -e $haml_lint_script ]; then
+  echo -e "\033[0;33m \xF0\x9F\x94\x8D  run haml-lint...\033[0;39m"
+  sh $haml_lint_script
+
+  if [ $? -ne 0 ]; then
+    errors+=(1)
+    echo -e "\033[0;31m \xE2\x9D\x8C   ng haml-lint\033[0;39m"
+  else
+    echo -e "\033[0;33m \xE2\x9C\x94   ok html-lint\033[0;39m"
+  fi
+fi
+
+if [ ${#errors[@]} -ne 0 ]; then
+  exit 1
+fi
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+# original: http://site-blog.main.jp/2015/04/20/git-prepush/
+
+branch="$(git symbolic-ref HEAD 2>/dev/null)" ||
+       "$(git describe --contains --all HEAD)"
+
+if [ "${branch##refs/heads/}" = "master" ]; then
+  echo -e "\033[0;31m\xE2\x9D\x8C  Do not push on the master branch !\033[0;39m"
+  exit 1
+fi
+
