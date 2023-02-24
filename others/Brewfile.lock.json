@@ -821,7 +821,7 @@
         }
       },
       "bettertouchtool": {
-        "version": "4.035,2253",
+        "version": "4.038,2256",
         "options": {
           "full_name": "bettertouchtool"
         }
@@ -860,6 +860,30 @@
         "version": "0.0.273",
         "options": {
           "full_name": "discord"
+        }
+      },
+      "figma": {
+        "version": "116.6.3",
+        "options": {
+          "full_name": "figma"
+        }
+      },
+      "deepl": {
+        "version": "4.0.332521",
+        "options": {
+          "full_name": "deepl"
+        }
+      },
+      "obsidian": {
+        "version": "1.1.15",
+        "options": {
+          "full_name": "obsidian"
+        }
+      },
+      "alt-tab": {
+        "version": "6.55.0",
+        "options": {
+          "full_name": "alt-tab"
         }
       }
     }

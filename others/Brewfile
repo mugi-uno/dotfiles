@@ -19,7 +19,6 @@ brew 'vim'
 brew 'wget'
 brew 'fish'
 
-cask 'alfred'
 cask 'bettertouchtool'
 cask 'docker'
 cask 'iterm2'
@@ -27,6 +26,10 @@ cask 'visual-studio-code'
 cask 'slack'
 cask 'zoom'
 cask 'discord'
+cask 'figma'
+cask 'deepl'
+cask 'obsidian'
+cask 'alt-tab'
 
 # mas 'Xcode', id: 497799835
 # mas 'Keynote', id: 409183694
